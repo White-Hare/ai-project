@@ -11,7 +11,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 
 
-from data_organizer import clear_data, encode_labels, split_train_and_test
+from src.data_organizer import clear_data, encode_labels, split_train_and_test
 
 
 def train(model, x_train, x_test, y_train, y_test):

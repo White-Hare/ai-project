@@ -1,8 +1,7 @@
 import streamlit as st
-import numpy as np
 import pandas as pd
 
-from train import read_and_proccess_data
+from src.train import read_and_proccess_data
 
 import matplotlib.pyplot as plt
 
