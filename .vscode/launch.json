@@ -8,7 +8,7 @@
             "program": "./Scripts/streamlit.exe", // /home/xx/tmp/venv/bin/streamlit",
             "args": [
                 "run",
-                "app.py"
+                "src/app.py"
             ],
             "host": "localhost",
             "port": 8501,
