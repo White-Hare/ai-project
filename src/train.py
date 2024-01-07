@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from sklearn.metrics import confusion_matrix, roc_curve, mean_squared_error 
+from sklearn.metrics import multilabel_confusion_matrix, roc_curve, mean_squared_error 
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
@@ -38,11 +38,15 @@ def get_metrics(y_actual, y_pred, print_confussion_matrix = False):
     #confusion matrix 3x3 olacak
     labels = np.unique(y_actual)
 
-    cm = confusion_matrix(y_actual, y_pred, labels = labels)
-    fp = cm.sum(axis=0) - np.diag(cm)#false positive
-    fn = cm.sum(axis=1) - np.diag(cm)#false negative
-    tp = np.diag(cm)#true positive
-    tn = cm.sum() - (fp + fn + tp)#true negative
+    cm = multilabel_confusion_matrix(y_actual, y_pred, labels = labels)
+    [tn1, fp1, fn1, tp1] = cm[0].ravel()
+    [tn2, fp2, fn2, tp2] = cm[1].ravel()
+    [tn3, fp3, fn3, tp3] = cm[2].ravel()
+
+    tn = np.array([tn1, tn2, tn3])
+    fp = np.array([fp1, fp2, fp3])
+    fn = np.array([fn1, fn2, fn3])
+    tp = np.array([tp1, tp2, tp3])
 
     if(print_confussion_matrix):
         print("----Confusion Matrix----\n")

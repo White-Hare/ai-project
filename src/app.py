@@ -40,7 +40,7 @@ def side_bar():
     algorithm = st.sidebar.selectbox("Algoritma", algorithm_text_number_dict.keys())
     algorithm = algorithm_text_number_dict[algorithm]
 
-    s, e = st.sidebar.slider("Iterasyon Sayisi", 0, 300, (default_iteration_start, default_iteration_end), 1)
+    s, e = st.sidebar.slider("Iterasyon Sayisi", 1, 300, (default_iteration_start, default_iteration_end), 1)
 
     if st.sidebar.button('Calistir'):
         body(algorithm, s, e)
