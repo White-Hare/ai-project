@@ -50,7 +50,7 @@ def side_bar():
 
 def header():
     st.title(title)
-    st.link_button('Kod - Github', 'https://github.com/White-Hare')
+    st.link_button('Kod - Github', 'https://github.com/White-Hare/ai-project')
 
 def body(algorithm = 3, iteration_start = default_iteration_start, iteration_end=default_iteration_end):
     (b_df, b_roc), (d_df, d_roc), (w_df, w_roc)  = read_and_proccess_data(algorithm, iteration_start, iteration_end)
